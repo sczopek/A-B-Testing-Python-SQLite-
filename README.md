@@ -2,7 +2,7 @@
 A/B testing to investigate personal loan data.
 using Python and SQLite
 
-This software demos Evan Miller's A/B testing algorithm using Lending Club Loan Data.  An overview for each file is given, followed by some project notes including a getting started and installation guide.  The A/B testing algorithm is validated by confirming that personal loans with lower credit grades have a statistically higher charge off rate.  A letter grade, "A" - "G", is associated with each loans credit worthiness.  An 11% difference in total number of charged offs, between one letter grade and loans given at two letter grades below the first (e.g. "A" vs "C" grades), was the effect size that was tested for.  (There weren't enough samples to provide enough statistical power to detect a 10% difference.)  The algorithm was able to detect a statistically significant difference between loans of different letter grades, and did not detect a statistically significant difference between loans of the same letter grades. 
+This software demos Evan Miller's A/B testing algorithm using Lending Club Loan Data.  An overview for each file is given, followed by some project notes including a getting started and installation guide.  The A/B testing algorithm is validated by confirming that personal loans with lower credit grades have a statistically higher charge off rate.  A letter grade, "A" - "G", is associated with each loans credit worthiness.  An 11% difference charged offs was the effect size tested for between loans of one letter grade and loans written at two letter grades lower (e.g. "A" vs "C" grades), which allows for validation of the A/B algorithm because of the large expected difference in charge offs between letter grades.  (There weren't enough samples to provide enough statistical power to detect a 10% difference, which is why a 11% effect size was chosen.)  The algorithm was able to detect a statistically significant difference between loans of different letter grades, and did not detect a statistically significant difference between loans of the same letter grades. 
 
 
 
@@ -12,15 +12,15 @@ This script is used to validate my A/B testing algorithm, by showing that person
 
 ### lendingClubLoanDataLite.sqlite
 
-This is an abridged SQLite3 database, which contains personal loan data.  With +800,000 personal loans, with letter grades "A" - "G", this dataset is robust.  Each loan's status is examined, with particular interest given to loans that have moved beyond default and that have now been "Charged Off".  This dataset was obtained through Kaggle, and originated a the Lending Club, which offers personal loans at: https://www.lendingclub.com/
+This is an abridged SQLite3 database, which contains personal loan data.  With +800,000 personal loans, with letter grades "A" - "G", this dataset is robust.  Each loan's status is examined, with particular interest given to loans that have moved beyond default and that have now been "Charged Off".  This dataset was obtained through Kaggle, and originated from the Lending Club, which offers personal loans at: https://www.lendingclub.com/
 
 ### Summary: 
-This module implements an algorithm used to calculate the needed sample size to run an A/B test.  This calculator uses Evan Miller's algorithm.
+This module implements an algorithm used to calculate the needed sample size to run an A/B test.  This calculator uses Evan Miller's A/B sample size calculator algorithm.
           
           
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
@@ -36,7 +36,7 @@ A step by step series of examples that tell you have to get a development env ru
 
 Download and save all files to the same local directory.
 
-Change $PWD ($PathWorkingDirectory) to that directory. Then run this script, then run the script.  The test results will print to the output screen..
+Change $PWD ($PathWorkingDirectory) to that directory. Then run this script.  The test results will print to the output screen.
 
 ```
 python -V
